@@ -1,0 +1,613 @@
+/*
+Theme Name: Type Child
+Theme URI: http://bike100days.com
+description: Extends the Type Theme for bike100days
+Author: FlySpaceAge
+Author URI: https://www.facebook.com/spaceagepurp/
+Template: type
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain: type-child
+*/
+
+/* COLOR VARIABLES */
+:root {
+  --main-bg-color: #FFFFFF;
+  --main-text-color: #000000;
+  --secondary-text-color: #212529;
+  --accent-color: #000000 ;
+  --gray100: #67696F;
+  --gray75: #8D8F93;
+  --gray50: #B3B4B7;
+  --gray25: #D9D9DB;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; 
+}
+
+/* BUTTONS */
+a.btn-link,
+button.btn-link {
+  color:#17a2b8;
+}
+a.btn-link:hover,
+button.btn-link:hover {
+  color:#3d184e;
+}
+
+/* CALL TO ACTIONS */
+.current-event {
+  margin: 0 7% 4em 7%;
+}
+
+@media (max-width:767px){
+  .current-event {
+    margin: 0 auto;
+  }
+}
+
+.register-event {
+  margin: 3em 0;
+}
+
+/* BOOTSTRAP MODAL */
+.modal .modal-dialog {
+  max-width:unset;
+}
+
+.modal .modal-dialog .modal-content {
+  width:65vw;
+  margin:0 auto;
+}
+
+@media (max-width:767px) {
+  .modal .modal-dialog .modal-content {
+    width:99vw;
+    margin:0 auto;
+  }
+}
+
+
+/* CALENDAR PAGE TEMPLATE */
+h1.month {
+  writing-mode: vertical-rl;
+  float: left;
+  padding: 0 24px;
+  margin-left: -104px;
+}
+
+@media (min-width:992px) and (max-width:1024px) {
+  h1.month {
+    padding: 0 8px 0 0;
+    margin-left: -70px;
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  h1.month {
+    padding: 0 8px 0 0;
+    margin-left: -50px;
+  }
+}
+
+@media (max-width:767px) {
+  h1.month {
+    writing-mode: horizontal-tb;
+    text-orientation: unset;
+    float: none;
+    padding: 0;
+    margin-left: unset;
+    text-align:center;
+  }
+}
+
+/* CALENDAR WRAPPER */
+@media (min-width:1200px) {
+  #calendar {
+    max-width:45%;
+  }
+}
+
+@media (min-width:1025px) and (max-width:1199px){
+  #calendar {
+    max-width:50%;
+  }
+}
+
+@media (min-width:992px) and (max-width:1024px) {
+  #calendar {
+    max-width:80%;
+  }
+}
+
+@media (max-width:767px) {
+  .calendar {
+    display: inline-table;
+    width:100%;
+  }
+}
+
+/* CALENDAR CARD TILES */
+.card-group .card.event,
+.card-group .card.weekday,
+.card-group .card.block {
+  flex-basis:14.28% !important;/* 7 days per row */
+  border-radius:0 !important;  
+  margin-bottom:0;
+}
+
+.card.block .card-body {
+  padding:0;
+}
+
+.card.weekday {
+  background-color: var(--main-bg-color);
+  border:1px solid var(--main-bg-color);
+  padding:.25em 0;
+  text-align: center;
+  color: var(--main-text-color);
+  font-weight: 700;
+  text-transform:uppercase;
+  font-size:10px;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .card.weekday {
+    font-size:14px;
+  }
+}
+
+@media (max-width:767px){
+  .card-group .card.weekday {
+    display:inline-flex;
+    width: 14.28%;
+    margin-bottom:0;
+  }
+}
+
+.card.block {
+  background-color: var(--main-bg-color);
+  border:none;
+}
+
+
+@media (max-width:767px){
+  .card.block {
+    display: inline-table;
+    width: 14.28%;
+  }
+}
+
+.card-group .card.block.last {
+  border-right: 1px solid var(--gray25);
+}
+
+.card.weekday.active {
+  background-color:var(--accent-color);
+  color:var(--gray25);
+  border: 1px solid var(--accent-color);
+}
+
+.card.weekday .mobile {
+  display:none;
+}
+
+@media (max-width:767px){
+  .card.weekday .desktop {
+    display:none;
+  }
+  .card.weekday .mobile {
+    display:block;
+  }
+}
+
+.card.event {
+  border:1px solid var(--gray25);
+  background-color:var(--main-bg-color);
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+
+@media (min-width: 576px){
+  .card-group>.card+.card.event {
+    border-left: 1px solid var(--gray25);
+  }
+}
+
+@media (max-width:767px){
+  .card-group .card.block,
+  .card-group .card.event {
+    display:inline-flex;
+    justify-content:center;
+    overflow:hidden;
+    width: 14.28%;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width:768px){
+  .card.event.current-day {
+    border-left: 2px solid var(--accent-color) !important;
+  }
+}
+
+.card.event .card-header {
+  padding:0;
+}
+
+.card.event .card-body {
+  font-size:1.5em;
+  text-align:center;
+}
+
+.card.event .card-body {
+  padding: .5rem .25rem;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .card.event .card-body {
+    font-size: 2em;
+  }
+}
+
+@media (max-width:767px) {
+  .card.event .card-body {
+    font-size: 1em;
+  }
+}
+
+.card.event .info {
+  float:left;
+  text-align:left;
+  margin: 3% 0 0 5%;
+}
+
+.card.event .date {
+  float:right;
+  text-align:right;
+  text-transform:uppercase;
+  padding: 0 1em;
+  background-color:var(--accent-color);
+  color:#FFFFFF;
+  font-weight: 700;
+  text-transform:uppercase;
+  height: 100%;
+}
+
+.card.event .date,
+.card.event .info {
+  font-weight:300;
+  transition: all .3s ease-out;
+}
+
+@media (max-width:767px){
+  .card.event .info {
+    margin-top: 1%;
+  }
+}
+
+.card.event .card-header,
+.card.event .card-body,
+.card.event .card-footer {
+  border:none;
+  transition: color .1s ease-out;
+  transition: background-color .3s ease-out;
+}
+
+.card.event .card-body .card-text h5 {
+  font-size:1.1rem;
+}
+
+.card.event .card-body .card-text p {
+  margin:0 auto;
+}
+
+.card.event .card-footer {
+  padding:0;
+}
+
+.card.event:hover {
+  background-color:var(--main-bg-color);
+  cursor: pointer;
+  transition: all .3s ease-out;
+}
+
+.card.event:hover button.btn-link{
+  color:#2a496e;
+  transition: color .3s ease-out;
+}
+
+.card.event.current-day {
+  background-color:var(--main-bg-color);
+  color:var(--main-text-color);
+  border:2px solid var(--accent-color);
+}
+
+.card.event.current-day .btn-link,
+.card.event.current-day h5{
+  color:var(--main-text-color);
+  transition: color .1s ease-out;
+}
+
+.card.event.current-day:hover h5{
+  color:var(--main-text-color);
+}
+
+.card.event.current-day:hover .card-header {
+  background-color:var(--accent-color);
+}
+
+.card.event.current-day:hover .card-footer {
+  background-color: var(--main-bg-color);
+} 
+
+
+/* SITE HEADER */
+.site-title-centered .header-image {
+	background-position:center;
+	background-size:contain;
+}
+
+.has-header-image .header-image .social-menu a:hover {
+  background-color:rgba(0,0,0, .7);
+  transition: all .3s ease;
+}
+
+.site-title-centered .header-image .header-image-container {
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.site-title-centered .header-image {
+    background-position: bottom;
+    background-size: contain;
+    padding-bottom: 0;
+}
+
+@media screen and (min-width: 960px){
+  .has-header-image .main-navbar {
+      height: 0;
+      box-shadow: none;
+  }
+}
+
+.mobile-navbar .top-search {
+  display:none;
+}
+
+
+/* SITE FOOTER */
+.site-footer {
+  margin-top:0;
+}
+
+.footer-copy {
+  background-color: #f7f7f7;
+}
+
+/* FOOTER SOCIAL MENU */
+footer .footer-copy ul.social-icons {
+  display:flex;
+  float:right;
+  margin:0 auto;
+}
+
+footer .footer-copy ul.social-icons li {
+  list-style-type: none;
+}
+
+footer .footer-copy ul.social-icons li a i {
+  color: #2e1d2f;
+  font-size: 2em;
+  text-align: center;
+  margin-left: 1em;
+  transition: all .3s ease-in-out;
+}
+
+footer .footer-copy ul.social-icons li a i:hover {
+  opacity: .7;
+}
+
+@media (max-width:767px){
+  footer .footer-copy ul.social-icons {
+    justify-content: center;
+    float: none;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  footer .footer-copy ul.social-icons li a i {
+    padding-right: .5em;
+    margin: 0 auto;
+  }
+}
+
+/* FOOTER NAV MENU */
+footer .footer-copy ul.footer-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* footer .footer-copy ul.footer-menu li:not(:first-child):before {
+  content: "|";
+  padding-right: 12px;
+} */
+
+footer .footer-copy ul.footer-menu li {
+  text-align: left;
+  display: inline-block;
+  padding-right: 8px;
+}
+
+footer .footer-copy ul.footer-menu li a {
+  display: block;
+  text-align: center;
+  padding: 0 16px;
+  text-decoration: none;
+  color: #888;
+  transition: all .3s ease-in-out;
+}
+
+footer .footer-copy ul.footer-menu li a:hover {
+  color: #3d184e;
+}
+
+/* FOOTER SITE CREDITS */
+@media (max-width:767px){
+  .site-credits {
+    margin:15px 0 0 0;
+  }
+}
+
+.site-credits a {
+  color: #888;
+  transition: all .3s ease-in-out;
+}
+
+.site-credits a:hover {
+  color: #3d184e;
+}
+
+
+/* ABOUT PAGE TEMPLATE */
+section.sponsors {
+  /* background-color:var(--gray25); */
+  padding:36px 0;
+}
+
+section.sponsors h2 {
+  margin-bottom:16px;
+  font-weight:300;
+}
+
+section.sponsors h3 {
+  font-weight:100;
+}
+
+section.sponsors img {
+  max-width:150px;
+  height:auto;
+  margin-bottom:12px;
+}
+
+section.sponsors a,
+section.sponsors a:hover {
+  color:var(--secondary-text-color);
+  text-decoration:none;
+}
+
+section.sponsors .col-md-4 {
+  display: flex;             /* nested flex container */
+  flex-direction: column;    /* vertical alignment of flex items */
+  justify-content: center;   /* center flex items vertically */
+  align-items: center;       /* center flex items horizontally */
+}
+
+section.featured-events h2 {
+  margin-bottom:16px;
+  font-weight:300;
+  text-align:center;
+}
+
+@media screen and (max-width:767px) {
+  section.sponsors .sponsor {
+    margin-bottom:24px;
+  }
+}
+
+@media screen and (max-width:991px) {
+  section.in-the-news .card,
+  section.featured-events .card {
+    margin-bottom:24px;
+  }
+}
+
+/* ABOUT | WHAT WE DO */
+section.what-we-do {
+  background-color:var(--gray25);
+  padding:36px 0;
+}
+
+section.what-we-do h2 {
+  margin-bottom:16px;
+  font-weight:300;
+}
+
+section.what-we-do h3 {
+  font-weight:100;
+}
+
+section.what-we-do i {
+  font-size:7em;
+  color: #2e1d2f;
+  margin-bottom:12px;
+}
+
+
+/* __DNU__
+.has-header-image .header-image .social-menu a:hover {
+  background-color:rgba(255,255,255, .3);
+  transition: all .3s ease;
+}
+
+.site-title-centered .header-image {
+	background-position:top;
+	background-size:contain;
+}
+@media and (max-width:767px){
+  .site-title-centered .header-image {
+    background-position:center;
+  }
+}
+
+.body.custom-background {
+  background: 
+    linear-gradient(
+      rgba(255, 0, 0, 0.45), 
+      rgba(255, 0, 0, 0.45)
+    ),
+    url(https://bike100.dev.cc/wp-content/uploads/2020/01/cog-bg.png);
+} 
+
+#content.site-content {
+  margin: 0 auto;
+}
+
+#primary.full-width-body::before {
+  display: none;
+}
+
+#primary.full-width-content {
+  float: none;
+  margin: 0 auto;
+  width:100%;
+}
+
+#primary.calendar {
+  margin:0 2em;
+}
+
+.header-image {
+  background-size: contain;
+  padding:0;
+}
+
+#site-navigation {
+  margin:0;
+}
+*/
