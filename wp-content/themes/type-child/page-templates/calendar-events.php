@@ -147,7 +147,7 @@ get_header('fullwidth'); ?>
       $eventNum = $date_string->format("z"); // day of event as number | 1 through 365
       $monthString = $date_string->format("F"); // get the current month as string
       $dayNum = date("z"); //get the current day of the week | 1 of 365
-      $startDay = 'June 1, 2020';// static day for testing
+      $startDay = 'June 1, 2019';// static day for testing
 
       // show the event <- if the day of the event is greater than or equal to then today and month is same as month string var
       if( $eventNum >= $dayNum && $monthString == 'June') { ?>
